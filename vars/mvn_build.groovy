@@ -7,11 +7,11 @@ import online.kairops.kna.skX.pipelines.MvnPipeline
  * @param pomPath: Path to pom file
  * @return
  */
-def call(String settingsPath, String pomPath) {
+def call(HashMap config ) {
     ContextRegistry.registerMvnContext(this)
 
     // TODO - Check parameters
 
-    def mvnPipeline = new MvnPipeline(settingsPath, pomPath, "ci")
+    def mvnPipeline = new MvnPipeline(config.get("settingsPath"),config.get("pomPath"), "ci")
     mvnPipeline.build()
 }
