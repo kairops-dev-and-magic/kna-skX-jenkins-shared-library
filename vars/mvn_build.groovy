@@ -12,6 +12,9 @@ def call(HashMap config ) {
 
     // TODO - Check parameters
 
-    def mvnPipeline = new MvnPipeline(config.get("settingsPath"),config.get("pomPath"), "ci")
-    mvnPipeline.build()
+    withMaven( maven: 'Default') {
+
+        def mvnPipeline = new MvnPipeline(config.get("settingsPath"),config.get("pomPath"), "ci")
+        mvnPipeline.build()
+    }
 }
