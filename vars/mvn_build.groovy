@@ -2,13 +2,16 @@ import online.kairops.kna.skX.ioc.ContextRegistry
 import online.kairops.kna.skX.pipelines.MvnPipeline
 
 /**
- * Example custom step for easy use of MsBuild inside Jenkinsfiles
- * @param solutionPath Path to .sln file
+ * Custom step for easy use of maven build inside Jenkinsfiles
+ * @param settingsPath: Path to settings file
+ * @param pomPath: Path to pom file
  * @return
  */
-def call() {
+def call(String settingsPath, String pomPath) {
     ContextRegistry.registerMvnContext(this)
 
-    def mvnPipeline = new MvnPipeline()
+    // TODO - Check parameters
+
+    def mvnPipeline = new MvnPipeline(settingsPath, pomPath, "ci")
     mvnPipeline.build()
 }

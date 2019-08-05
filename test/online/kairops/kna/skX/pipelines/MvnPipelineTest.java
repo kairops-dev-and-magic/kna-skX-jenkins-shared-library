@@ -15,6 +15,9 @@ public class MvnPipelineTest {
     private IContext _context;
     private IStepExecutor _steps;
     private IPipeline _pipeline;
+    private final static String SETTINGS_PATH =  "settings.xml";
+    private final static String POM_PATH =  "pom.xml";
+    private final static String PROFILE =  "smoke-test";
 
     @Before
     public void setup() {
@@ -25,7 +28,7 @@ public class MvnPipelineTest {
 
         ContextRegistry.registerContext(_context);
 
-        _pipeline = new MvnPipeline();
+        _pipeline = new MvnPipeline(SETTINGS_PATH,POM_PATH, PROFILE);
     }
 
     @Test
@@ -34,14 +37,14 @@ public class MvnPipelineTest {
         _pipeline.build();
 
         // verify
-        verify(_steps).mvn(MvnPipeline.BUILD_GOAL);
+        verify(_steps).mvn(MvnPipeline.DEFAULT_BUILD_GOAL);
     }
 
     @Test
     public void build_MvnStepReturnsStatusNotEqualsZero_callsErrorStep() {
 
         // prepare
-        when(_steps.mvn(MvnPipeline.BUILD_GOAL)).thenReturn(-1);
+        when(_steps.mvn(MvnPipeline.DEFAULT_BUILD_GOAL)).thenReturn(-1);
 
         // execute
         _pipeline.build();
@@ -56,14 +59,14 @@ public class MvnPipelineTest {
         _pipeline.qa();
 
         // verify
-        verify(_steps).mvn(MvnPipeline.QA_GOAL);
+        verify(_steps).mvn(MvnPipeline.DEFAULT_QA_GOAL);
     }
 
     @Test
     public void qa_MvnStepReturnsStatusNotEqualsZero_callsErrorStep() {
 
         // prepare
-        when(_steps.mvn(MvnPipeline.QA_GOAL)).thenReturn(-1);
+        when(_steps.mvn(MvnPipeline.DEFAULT_QA_GOAL)).thenReturn(-1);
 
         // execute
         _pipeline.qa();

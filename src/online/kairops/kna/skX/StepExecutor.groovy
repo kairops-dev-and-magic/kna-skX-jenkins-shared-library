@@ -9,12 +9,12 @@ class StepExecutor implements IStepExecutor {
 
     @Override
     int mvn(String goal) {
-        this._steps.mvn returnStatus: true, script: "${goal}"
+        this._steps.sh returnStatus: true, script: "mvn clean ${goal}"
     }
 
     @Override
     int docker(String command) {
-        this._steps.mvn returnStatus: true, script: "${command}"
+        this._steps.sh returnStatus: true, script: "${command}"
     }
 
     @Override

@@ -5,6 +5,8 @@ package online.kairops.kna.skX
  */
 interface IStepExecutor {
     int mvn(String goal)
+
     int docker(String command)
+
     void error(String message)
 }
