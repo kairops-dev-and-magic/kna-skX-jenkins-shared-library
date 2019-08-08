@@ -43,7 +43,7 @@ abstract class AbstractCommonPipeline implements IPipeline, Serializable {
         switch (analysisType) {
             case CodeAnalysisTypes.SONAR:
 
-                analysisToolPath = analysis.get(CODE_ANALYSIS_SONAR_PATH_KEY)
+                analysisToolPath = analysis.get(CODE_ANALYSIS_SONAR_PATH_KEY, "")
                 analysisCommand  = analysisToolPath + CODE_ANALYSIS_SONAR_COMMAND
 
                 break
