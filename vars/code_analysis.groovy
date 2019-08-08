@@ -12,7 +12,7 @@ def call(HashMap config) {
 
     // TODO - Check parameters
 
-    withSonarQubeEnv(sonarInstalation) {
+    withSonarQubeEnv('Default') {
         String toolPathValue = ""
         String toolPathKey = ""
         switch (config.get(CommonPipeline.CODE_ANALYSIS_TYPE_KEY)) {
@@ -22,7 +22,6 @@ def call(HashMap config) {
                 break
             default:
                 break
-
         }
         config.put(toolPathKey, toolPathValue)
         CommonPipeline commonPipeline = new CommonPipeline()
