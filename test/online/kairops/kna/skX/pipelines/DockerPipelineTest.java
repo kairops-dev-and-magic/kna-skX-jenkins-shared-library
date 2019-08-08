@@ -12,13 +12,12 @@ import static org.mockito.Mockito.*;
  * Pipeline test class
  */
 public class DockerPipelineTest {
-    private IContext _context;
     private IStepExecutor _steps;
     private IPipeline _pipeline;
 
     @Before
     public void setup() {
-        _context = mock(IContext.class);
+        IContext _context = mock(IContext.class);
         _steps = mock(IStepExecutor.class);
 
         when(_context.getStepExecutor()).thenReturn(_steps);
@@ -45,28 +44,6 @@ public class DockerPipelineTest {
 
         // execute
         _pipeline.build();
-
-        // verify
-        verify(_steps).error(anyString());
-    }
-
-    @Test
-    public void qa_callsDockerStep() {
-        // execute
-        _pipeline.qa();
-
-        // verify
-        verify(_steps).docker(DockerPipeline.QA_GOAL);
-    }
-
-    @Test
-    public void qa_DockerStepReturnsStatusNotEqualsZero_callsErrorStep() {
-
-        // prepare
-        when(_steps.docker(DockerPipeline.QA_GOAL)).thenReturn(-1);
-
-        // execute
-        _pipeline.qa();
 
         // verify
         verify(_steps).error(anyString());

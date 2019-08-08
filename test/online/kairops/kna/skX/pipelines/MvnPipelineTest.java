@@ -6,6 +6,9 @@ import online.kairops.kna.skX.IStepExecutor;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import static org.mockito.Mockito.*;
 
 /**
@@ -48,28 +51,6 @@ public class MvnPipelineTest {
 
         // execute
         _pipeline.build();
-
-        // verify
-        verify(_steps).error(anyString());
-    }
-
-    @Test
-    public void qa_callsMvnStep() {
-        // execute
-        _pipeline.qa();
-
-        // verify
-        verify(_steps).mvn(MvnPipeline.DEFAULT_QA_GOAL);
-    }
-
-    @Test
-    public void qa_MvnStepReturnsStatusNotEqualsZero_callsErrorStep() {
-
-        // prepare
-        when(_steps.mvn(MvnPipeline.DEFAULT_QA_GOAL)).thenReturn(-1);
-
-        // execute
-        _pipeline.qa();
 
         // verify
         verify(_steps).error(anyString());

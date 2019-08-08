@@ -2,4 +2,4 @@
 /gradle
 /build
 /.gradle
-/.idea
+*.priv_key

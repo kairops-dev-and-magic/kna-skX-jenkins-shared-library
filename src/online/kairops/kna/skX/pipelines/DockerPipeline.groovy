@@ -3,21 +3,10 @@ package online.kairops.kna.skX.pipelines
 import online.kairops.kna.skX.IStepExecutor
 import online.kairops.kna.skX.ioc.ContextRegistry
 
-class DockerPipeline implements IPipeline {
+class DockerPipeline extends AbstractCommonPipeline {
 
     public final static String BUILD_GOAL = "build"
     public final static String QA_GOAL = ""
-
-    @Override
-    int qa() {
-        IStepExecutor steps = ContextRegistry.getContext().getStepExecutor()
-
-        int returnStatus = steps.docker(QA_GOAL)
-        if (returnStatus != 0) {
-            steps.error("Some error")
-        }
-        return returnStatus
-    }
 
     @Override
     int build() {

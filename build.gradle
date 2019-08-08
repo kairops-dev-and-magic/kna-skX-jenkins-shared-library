@@ -9,15 +9,26 @@ sourceCompatibility = 1.8
 repositories {
     mavenCentral()
     maven {
-        url "https://repo.spring.io/libs-release"
+        url "https://repo.jenkins-ci.org/releases/"
+    }
+    maven {
+        url "https://repo.spring.io/libs-release/"
     }
 }
 
 dependencies {
     compile 'org.codehaus.groovy:groovy-all:2.3.11'
-    compile group: 'org.jenkins-ci.main', name: 'jenkins-core', version: '2.85'
+
+    compile group: 'org.jenkins-ci.main', name: 'jenkins-core', version: '2.187'
+    compile group: 'org.jenkinsci.plugins', name: 'git', version: '1.1.29'
+    compile group: 'org.jenkins-ci.plugins', name: 'sonar', version: '2.9'
+    compile group: 'com.cloudbees.jenkins.plugins', name: 'cloudbees-credentials', version: '3.3'
+
+
+
     testCompile group: 'junit', name: 'junit', version: '4.12'
     testCompile "org.mockito:mockito-core:2.+"
+    testCompile group: 'org.jenkins-ci.plugins.workflow', name: 'workflow-cps', version: '2.73'
 
 }
 

@@ -7,6 +7,10 @@ class ContextRegistry implements Serializable {
         _context = context
     }
 
+    static void registerCommonContext(Object steps) {
+        _context = new CommonContext(steps)
+    }
+
     static void registerMvnContext(Object steps) {
         _context = new MvnContext(steps)
     }

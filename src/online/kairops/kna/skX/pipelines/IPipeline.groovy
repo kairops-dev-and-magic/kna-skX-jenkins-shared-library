@@ -6,7 +6,7 @@ package online.kairops.kna.skX.pipelines
 interface IPipeline {
 
     // Static Code analysis including check vulnerabilities
-    int qa()
+    int codeAnalysis(Map<String,String> analysis)
 
     // Compile, Unit Test and package
     int build()

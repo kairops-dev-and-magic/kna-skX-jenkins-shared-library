@@ -18,7 +18,19 @@ class StepExecutor implements IStepExecutor {
     }
 
     @Override
+    int sh(String command) {
+        this._steps.sh returnStatus: true, script: "${command}"
+    }
+
+
+
+    @Override
     void error(String message) {
         this._steps.error(message)
+    }
+
+    @Override
+    int sonarScanner(String sonarScannerIntallationPath) {
+        return 0
     }
 }

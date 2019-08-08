@@ -1,0 +1,41 @@
+// add the following line and replace necessary values if you are not loading the library implicitly
+@Library('kna-skX-jenkins-shared-library') _
+
+pipeline {
+    agent any
+
+    options {
+        timestamps()
+    }
+
+    stages {
+        stage('prepare'){
+            steps {
+                checkout([
+                    $class: 'GitSCM',
+                    branches: [
+                        [name: '*/master']
+                    ],
+                    userRemoteConfigs: [
+                        [url: 'https://github.com/jitpack/maven-simple.git']
+                    ]
+                ])
+            }
+        }
+        stage('build') {
+            steps {
+                mvn_build ([
+                    settingsPath: 'settings.xml',
+                    pomPath: 'pom.xml'
+                ])
+            }
+        }
+         stage('sonar') {
+            steps {
+                code_analysis ([
+                    type: 'SONAR'
+                ])
+            }
+        }
+    }
+ }
