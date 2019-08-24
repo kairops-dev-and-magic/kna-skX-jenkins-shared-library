@@ -12,7 +12,7 @@ addons:
       secure: "anLCSOKaHELsaZEaIry7hJ59PjNQhpRNbj6+ex+S4bBbCjmTtVnuexv5BfVDaQwpZecP3bR84Zmw3VB+oCETLuWcn7t65PkpzT8zXqamImyMgv3s+lJx3JA5RXElGpJ3GPF1m8voBTlrG3ChVQ5qstcNTHDV1LdBHSi/Qps5K3njQ3gtnJvo464BXa7mXhE2iJ11kwi+7dvJ81Ynj8riRcExdmT9ygIcdAUh60i+z+dVUtscB+poPFSUr91rqObt7MqFAk8wbUkL0uRrtk4F2w8kqxYOzNdgpqSzCg7Hhh/nvAZlrCw7ikjg5g0ymT2Or8NVhqZ9BFRU5GyIgjsVlUfuY87Xl7aTKsq9ygL/R5Y02qHGyD9IsevO8bfiJ7X3D0+lp6WETZvK6A2Jo4EJ+vqAvLyFoVcdeROE2bavGIWZuozhinp+mv4YOziTh6RcscWLovFph6+wtz0jvBRijD/dThCfi9MPvF6/OPq2cKoUaFffLXE17EenK0sqhgphth2BP6mXpldbpkTfw6n7zU0Xu+58PHKvZB6Rx6NysVt6PBOH7mkQSDGvLlS5+Bv5hYJ/pthiyDj6srQSUvfA6fZ4mXlwtmsjg/xRH0XGq78evDZwJSX3ysam904zwFAYqU1kvbwFaWROLPVRYxXjrUBLfurwZvIPIhaCr6M2E78="
 
 script:
-  - ./gradlew build --scan -s
+  - ./gradlew test jacocoTestReport
   - sonar-scanner
 
 cache:
