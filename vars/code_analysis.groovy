@@ -1,9 +1,12 @@
 
 import online.kairops.kna.skX.ioc.ContextRegistry
+import online.kairops.kna.skX.pipelines.AbstractCommonPipeline
 import online.kairops.kna.skX.pipelines.CommonPipeline
 
+import static online.kairops.kna.skX.pipelines.CommonPipeline.*
+
 /**
- * Custom step for easy use of code analysis inside Jenkinsfiles
+ * Custom step for easy use of code analysis in Jenkinsfiles
  * @param
  * @return
  */
@@ -15,10 +18,10 @@ def call(HashMap config) {
     withSonarQubeEnv('Default') {
         String toolPathValue = ""
         String toolPathKey = ""
-        switch (config.get(CommonPipeline.CODE_ANALYSIS_TYPE_KEY)) {
-            case CommonPipeline.CodeAnalysisTypes.SONAR:
+        switch (config.get(CODE_ANALYSIS_TYPE_KEY)){
+            case "SONAR":
+                toolPathKey = CODE_ANALYSIS_SONAR_PATH_KEY
                 toolPathValue = tool 'SonarQubeScanner'
-                toolPathKey = CommonPipeline.CODE_ANALYSIS_SONAR_PATH_KEY
                 break
             default:
                 break

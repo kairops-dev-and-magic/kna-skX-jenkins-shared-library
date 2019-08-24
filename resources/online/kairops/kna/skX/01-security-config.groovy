@@ -25,8 +25,10 @@ instance.setAuthorizationStrategy(strategy)
 instance.setCrumbIssuer(new DefaultCrumbIssuer(true))
 
 
-configuration.setUrl("http://jenkins-kna.kairops.online:8080")
-configuration.setAdminAddress("c3did@kairops.online")
+def jenkinsURL = System.getenv('JENKINS_URL') ?: 'http://jenkins-kna.kairops.online:8080'
+def adminAddress = System.getenv("JENKINS_ADMIN_EMAIL") ?: 'c3did@kairops.online'
+configuration.setUrl(jenkinsURL)
+configuration.setAdminAddress(adminAddress)
 
 
 configuration.save()

@@ -20,7 +20,7 @@ public class CommonPipelineTest {
     private IStepExecutor _steps;
     private IPipeline _pipeline;
     private Map<String, String> _sonarConfig;
-    private final String SONAR_FAKE_PATH = "/";
+    private final String SONAR_FAKE_PATH = ".";
 
 
     @Before

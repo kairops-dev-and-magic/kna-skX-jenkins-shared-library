@@ -1,6 +1,7 @@
 #!groovy
 
 import hudson.plugins.git.*
+import hudson.model.*
 import hudson.plugins.git.extensions.*
 import hudson.plugins.git.extensions.impl.*
 import jenkins.model.Jenkins
@@ -28,8 +29,15 @@ for (pipeline in TEST_PIPELINES) {
     // define job type
     job.definition = flowDefinition
 
-    // save to disk
-    jenkins.save()
 }
 
+//List<Project> projectList = jenkins.getItems( Project.class )
+//
+//for (project in projectList) {
+//    project.authToken = new BuildAuthorizationToken("TEST")
+//    project.save()
+//}
+
+// save to disk
+jenkins.save()
 jenkins.reload()

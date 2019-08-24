@@ -11,10 +11,10 @@ import org.jenkinsci.plugins.workflow.libs.SCMSourceRetriever
 // parameters
 def globalLibrariesParameters = [
         branch:               "feature/base",
-        credentialId:         "git-ssh-key",
+        credentialId:         "",
         implicit:             true,
-        name:                 "kna-skX-jenkins-shared-library",
-        repository:           "git@github.com:kairops-dev-and-magic/kna-skX-jenkins-shared-library.git"
+        name:                 "kna-cicd-jenkins-framework",
+        repository:           "file:///var/jenkins_home/workflow-libs/static"
 ]
 
 // define global library

@@ -42,10 +42,8 @@ abstract class AbstractCommonPipeline implements IPipeline, Serializable {
         String analysisCommand = ""
         switch (analysisType) {
             case CodeAnalysisTypes.SONAR:
-
-                analysisToolPath = analysis.get(CODE_ANALYSIS_SONAR_PATH_KEY, "")
+                analysisToolPath = analysis.get(CODE_ANALYSIS_SONAR_PATH_KEY)
                 analysisCommand  = analysisToolPath + CODE_ANALYSIS_SONAR_COMMAND
-
                 break
             default:
                 break
@@ -54,10 +52,9 @@ abstract class AbstractCommonPipeline implements IPipeline, Serializable {
             steps.error("** analysisType ** misconfigured -> "+ analysisToolPath + " not found.")
             return -1
         }
-
         int returnStatus = steps.sh(analysisCommand)
         if (returnStatus != 0) {
-            steps.error("Some error")
+            steps.error("Sonar Scanner execution failed")
         }
         return returnStatus
     }

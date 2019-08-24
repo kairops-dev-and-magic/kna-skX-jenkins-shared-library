@@ -43,7 +43,7 @@ mavenPlugin.save();
 
 // Required environment variables
 def sonar_name = "Default"
-def sonar_server_url = "http://sonarqube-kna.kairops.online:9000"
+def sonar_server_url = "http://sonarqube:9000"
 def sonar_auth_token = "<token>"
 def sonar_mojo_version = ''
 def sonar_additional_properties = ''

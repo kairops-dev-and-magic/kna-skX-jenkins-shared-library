@@ -1,5 +1,4 @@
 // add the following line and replace necessary values if you are not loading the library implicitly
-@Library('kna-skX-jenkins-shared-library') _
 
 pipeline {
     agent any
@@ -17,7 +16,7 @@ pipeline {
                         [name: '*/master']
                     ],
                     userRemoteConfigs: [
-                        [url: 'https://github.com/jitpack/maven-simple.git']
+                        [url: 'https://github.com/jcalavia/maven-simple.git']
                     ]
                 ])
             }

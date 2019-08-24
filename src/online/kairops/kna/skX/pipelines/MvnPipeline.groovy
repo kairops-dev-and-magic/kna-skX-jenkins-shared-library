@@ -9,7 +9,7 @@ import online.kairops.kna.skX.ioc.ContextRegistry
 class MvnPipeline extends AbstractCommonPipeline {
 
     public final static String DEFAULT_BUILD_GOAL = "package"
-    public final static String DEFAULT_CODE_ANALISIS_GOAL = "sonar:sonar"
+    public final static String DEFAULT_CODE_ANALISIS_GOAL = "verify sonar:sonar"
     public final static String DEFAULT_PUBLISH_GOAL = "deploy"
     public final static String DEFAULT_PUBLISH_REGISTRY = "ARTIFACTORY"
     public final static String DEFAULT_DEPLOY_GOAL = "deploy"
@@ -31,7 +31,7 @@ class MvnPipeline extends AbstractCommonPipeline {
     int build() {
         IStepExecutor steps = ContextRegistry.getContext().getStepExecutor()
 
-        int returnStatus = steps.mvn(DEFAULT_BUILD_GOAL)
+        int returnStatus = steps.mvn(DEFAULT_BUILD_GOAL + " -P " + _profile )
         if (returnStatus != 0) {
             steps.error("Some error")
         }
@@ -41,9 +41,6 @@ class MvnPipeline extends AbstractCommonPipeline {
     @Override
     int publish(String registryType, String credentials) {
         IStepExecutor steps = ContextRegistry.getContext().getStepExecutor()
-
-        scannerHome = tool 'SonarQubeScanner'
-        sh "${scannerHome}/bin/sonar-scanner"
 
         int returnStatus = steps.mvn(DEFAULT_PUBLISH_GOAL, registryType, credentials)
         if (returnStatus != 0) {
@@ -56,7 +53,7 @@ class MvnPipeline extends AbstractCommonPipeline {
     int deploy(String environment) {
         IStepExecutor steps = ContextRegistry.getContext().getStepExecutor()
 
-        int returnStatus = steps.mvn(DEFAULT_BUILD_GOAL)
+        int returnStatus = steps.mvn(DEFAULT_DEPLOY_GOAL + " -P " + _profile)
         if (returnStatus != 0) {
             steps.error("Some error")
         }
@@ -67,7 +64,7 @@ class MvnPipeline extends AbstractCommonPipeline {
     int test(String type) {
         IStepExecutor steps = ContextRegistry.getContext().getStepExecutor()
 
-        int returnStatus = steps.mvn(DEFAULT_BUILD_GOAL)
+        int returnStatus = steps.mvn(DEFAULT_TEST_GOAL + " -P " + _profile)
         if (returnStatus != 0) {
             steps.error("Some error")
         }

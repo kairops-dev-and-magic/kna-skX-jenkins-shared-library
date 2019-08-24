@@ -1,0 +1,19 @@
+// add the following line and replace necessary values if you are not loading the library implicitly
+
+pipeline {
+    agent any
+
+    options {
+        timestamps()
+    }
+
+    stages {
+        stage('test') {
+            steps {
+                sh ([
+                    script: 'docker run hello-world'
+                ])
+            }
+        }
+    }
+ }
