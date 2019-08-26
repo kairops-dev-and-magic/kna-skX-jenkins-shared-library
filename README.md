@@ -1,12 +1,12 @@
 # Jenkins Shared Pipeline Example with Unit Tests
 
-[![Comments (%)](https://sonarcloud.io/api/badges/measure?key=kairops-dev-and-magic_kna-skX-jenkins-shared-library&metric=comment_lines_density)](https://sonarcloud.io/component_measures?id=kairops-dev-and-magic_kna-skX-jenkins-shared-library&metric=comment_lines_density)
-[![Open issues](https://sonarcloud.io/api/badges/measure?key=kairops-dev-and-magic_kna-skX-jenkins-shared-library&metric=open_issues)](https://sonarcloud.io/component_measures?id=kairops-dev-and-magic_kna-skX-jenkins-shared-library&metric=open_issues)
-[![Code smells](https://sonarcloud.io/api/badges/measure?key=kairops-dev-and-magic_kna-skX-jenkins-shared-library&metric=code_smells)](https://sonarcloud.io/component_measures?id=kairops-dev-and-magic_kna-skX-jenkins-shared-library&metric=code_smells)
-[![Technical debt](https://sonarcloud.io/api/badges/measure?key=kairops-dev-and-magic_kna-skX-jenkins-shared-library&metric=sqale_index)](https://sonarcloud.io/component_measures?id=kairops-dev-and-magic_kna-skX-jenkins-shared-library&metric=sqale_index)
-[![Bugs](https://sonarcloud.io/api/badges/measure?key=kairops-dev-and-magic_kna-skX-jenkins-shared-library&metric=bugs)](https://sonarcloud.io/component_measures?id=kairops-dev-and-magic_kna-skX-jenkins-shared-library&metric=bugs)
-[![Reliability remediation effort](https://sonarcloud.io/api/badges/measure?key=kairops-dev-and-magic_kna-skX-jenkins-shared-library&metric=reliability_remediation_effort)](https://sonarcloud.io/component_measures?id=kairops-dev-and-magic_kna-skX-jenkins-shared-library&metric=reliability_remediation_effort)
-[![Coverage](https://sonarcloud.io/api/badges/measure?key=kairops-dev-and-magic_kna-skX-jenkins-shared-library&metric=coverage)](https://sonarcloud.io/component_measures?id=kairops-dev-and-magic_kna-skX-jenkins-shared-library&metric=coverage)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=kairops-dev-and-magic_kna-skX-jenkins-shared-library&metric=alert_status)](https://sonarcloud.io/dashboard?id=kairops-dev-and-magic_kna-skX-jenkins-shared-library)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=kairops-dev-and-magic_kna-skX-jenkins-shared-library&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=kairops-dev-and-magic_kna-skX-jenkins-shared-library)
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=kairops-dev-and-magic_kna-skX-jenkins-shared-library&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=kairops-dev-and-magic_kna-skX-jenkins-shared-library)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=kairops-dev-and-magic_kna-skX-jenkins-shared-library&metric=security_rating)](https://sonarcloud.io/dashboard?id=kairops-dev-and-magic_kna-skX-jenkins-shared-library)
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=kairops-dev-and-magic_kna-skX-jenkins-shared-library&metric=vulnerabilities)](https://sonarcloud.io/dashboard?id=kairops-dev-and-magic_kna-skX-jenkins-shared-library)
+[![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=kairops-dev-and-magic_kna-skX-jenkins-shared-library&metric=sqale_index)](https://sonarcloud.io/dashboard?id=kairops-dev-and-magic_kna-skX-jenkins-shared-library)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=kairops-dev-and-magic_kna-skX-jenkins-shared-library&metric=coverage)](https://sonarcloud.io/dashboard?id=kairops-dev-and-magic_kna-skX-jenkins-shared-library)
 
 * https://automatingguy.com/2017/12/29/jenkins-pipelines-shared-libraries/
 
@@ -26,3 +26,7 @@
 * https://github.com/jenkins-infra/pipeline-library/tree/master/vars
 * https://stackoverflow.com/questions/49794536/groovy-script-to-set-sonarqube-server-settings-in-jenkins-programatically
 * https://wiki.alpinelinux.org/wiki/Docker
+* https://www.eficode.com/blog/jenkins-groovy-tutorial
+* https://www.baeldung.com/travis-ci-build-pipeline
+* https://medium.com/swlh/continuous-everything-automatic-deployments-to-heroku-with-travis-ci-770eb36b4b01
+* https://docs.travis-ci.com/user/build-stages/
