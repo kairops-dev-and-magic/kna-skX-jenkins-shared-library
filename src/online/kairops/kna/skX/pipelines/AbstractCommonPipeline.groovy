@@ -17,11 +17,6 @@ abstract class AbstractCommonPipeline implements IPipeline, Serializable {
         String getType() {
             _type
         }
-
-        String toString() {
-            return name() + " = " + _type
-        }
-
     }
 
     public final static String CODE_ANALYSIS_TYPE_KEY = "type"
